@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_blog/data/model/Book.dart';
 
 class bookForm extends StatelessWidget {
-  // final String bookImg;
-  // final String bookTitle;
-  // final String bookWriter;
-
-  const bookForm(
-      // this.bookImg,
-      // this.bookTitle,
-      // this.bookWriter,
-      );
+  final Book book;
+  const bookForm(this.book, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset('assets/book_images/book1.png'),
+        Image.asset('assets/${book.bookImage}'),
         Text(
-          '트렌드코리아2024',
+          '${book.title}',
           style: TextStyle(
             fontSize: 16, // Adjust the font size as needed
             fontWeight: FontWeight.bold, // You can change the font weight
@@ -25,7 +19,7 @@ class bookForm extends StatelessWidget {
           ),
         ),
         Text(
-          '김난도 외',
+          '${book.author}',
           style: TextStyle(
             fontSize: 13, // Adjust the font size as needed
             fontWeight: FontWeight.bold, // You can change the font weight
