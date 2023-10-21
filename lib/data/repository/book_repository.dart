@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_blog/_core/constants/http.dart';
 import 'package:flutter_blog/data/dto/response.dart';
 import 'package:flutter_blog/data/model/Book.dart';
@@ -19,5 +20,13 @@ class BookRepository {
     } catch (e) {
       return ResponseDTO(-1, "책 목록 불러오기 실패", null);
     }
+  }
+
+  Future<ResponseDTO> fetchBookDetail(int id) async {
+    Response<dynamic> response = await dio.get("/books/$id");
+    ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
+    Book book = Book.fromJson(responseDTO.data);
+    responseDTO.data = book;
+    return responseDTO;
   }
 }

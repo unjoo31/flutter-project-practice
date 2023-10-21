@@ -1,32 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blog/data/model/Book.dart';
 
-class bookForm extends StatelessWidget {
+class BookForm extends StatelessWidget {
   final Book book;
-  const bookForm(this.book, {Key? key}) : super(key: key);
+
+  const BookForm(this.book, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset('assets/${book.bookImage}'),
-        Text(
-          '${book.title}',
-          style: TextStyle(
-            fontSize: 16, // Adjust the font size as needed
-            fontWeight: FontWeight.bold, // You can change the font weight
-            color: Colors.black, // You can set the text color
-          ),
-        ),
-        Text(
-          '${book.author}',
-          style: TextStyle(
-            fontSize: 13, // Adjust the font size as needed
-            fontWeight: FontWeight.bold, // You can change the font weight
-            color: Colors.grey, // You can set the text color
-          ),
-        ),
-      ],
+    return Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          Image.asset('${book.picUrl}', height: 150),
+          SizedBox(height: 10),
+          Text('${book.title}'),
+          SizedBox(height: 10),
+          Text('${book.writer}'),
+        ],
+      ),
     );
   }
 }
