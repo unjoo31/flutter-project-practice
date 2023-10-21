@@ -7,6 +7,6 @@ void main() async {
 }
 
 Future<void> fetch() async {
-  Response<dynamic> response = await dio.get("/books");
+  Response<dynamic> response = await dio.get("/books/1");
   Logger().d(response);
 }
