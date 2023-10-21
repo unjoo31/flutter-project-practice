@@ -23,10 +23,15 @@ class BookRepository {
   }
 
   Future<ResponseDTO> fetchBookDetail(int id) async {
-    Response<dynamic> response = await dio.get("/books/$id");
-    ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
-    Book book = Book.fromJson(responseDTO.data);
-    responseDTO.data = book;
-    return responseDTO;
+    try {
+      Response response = await dio.get("/books/$id");
+      ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
+      Book book = Book.fromJson(responseDTO.data);
+      responseDTO.data = book;
+      Logger().d("${book.id}");
+      return responseDTO;
+    } catch (e) {
+      return ResponseDTO(-1, "게시글 한건 불러오기 실패", null);
+    }
   }
 }

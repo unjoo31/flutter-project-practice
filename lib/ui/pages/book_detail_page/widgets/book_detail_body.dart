@@ -31,13 +31,13 @@ class BookDetailBody extends ConsumerWidget {
       return ListView(
         children: [
           /// 북 이미지 컴포넌트
-          BookImage(book.picUrl),
+          BookImage("$book.picUrl"),
 
           /// 간격: 15
           SizedBox(height: 15),
 
           /// 타이틀 + writer 컴포넌트
-          BookTitleAndWriter(book.title, book.writer),
+          BookTitleAndWriter("${book.title}", "${book.writer}"),
 
           /// 간격: 북이미지-제목
           SizedBox(height: 15),
