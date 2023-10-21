@@ -18,7 +18,7 @@ class Book {
         picUrl = json["picUrl"],
         title = json["title"],
         writer = json["writer"],
-        content = json["content"];
+        content = json["content"] ?? "";
 }
 
 // final String _urlPrefix = "assets/book_images/";

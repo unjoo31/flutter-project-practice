@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_blog/ui/pages/book_detail_page/book_detail_page.dart';
 import 'package:flutter_blog/ui/pages/book_list_page/book_list_page.dart';
 
 class Move {
@@ -10,7 +9,7 @@ class Move {
 
 Map<String, Widget Function(BuildContext)> getRouters() {
   return {
-    Move.bookListPage: (context) => const BookListPage(),
+    Move.bookListPage: (context) => BookListPage(),
     // Move.bookDetailPage: (context) => const BookDetailPage(),
   };
 }

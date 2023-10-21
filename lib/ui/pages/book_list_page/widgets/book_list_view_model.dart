@@ -20,6 +20,7 @@ class BookListViewModel extends StateNotifier<BookListModel?> {
     Logger().d("notifyInit");
     ResponseDTO responseDTO = await BookRepository().fetchBookList();
     state = BookListModel(responseDTO.data);
+    Logger().d("notifyInit : ${responseDTO.data}");
   }
 }
 

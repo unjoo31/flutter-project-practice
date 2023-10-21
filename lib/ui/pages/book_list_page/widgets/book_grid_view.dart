@@ -16,6 +16,7 @@ class BookGridView extends ConsumerWidget {
     List<Book> books = [];
 
     if (model != null) {
+      Logger().d("book_grid_view ${model.books}");
       books = model.books;
     }
 

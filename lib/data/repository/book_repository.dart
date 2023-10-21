@@ -8,10 +8,10 @@ class BookRepository {
   Future<ResponseDTO> fetchBookList() async {
     try {
       final response = await dio.get("/books");
-
+      Logger().d("fetchBookList 실행됨 : ${response.data}");
       ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
 
-      Logger().d(responseDTO.data);
+      Logger().d("fetchBookList : ${responseDTO.data}");
       List<dynamic> mapList = responseDTO.data as List<dynamic>;
       List<Book> bookList = mapList.map((e) => Book.fromJson(e)).toList();
 
